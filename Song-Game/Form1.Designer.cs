@@ -44,7 +44,7 @@
             this.songYear = new System.Windows.Forms.Label();
             this.songDurationLabel = new System.Windows.Forms.Label();
             this.playWholeSong = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.durationLabel = new System.Windows.Forms.Label();
             this.playSpecificSong = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.secondsToPlay)).BeginInit();
             this.SuspendLayout();
@@ -119,7 +119,7 @@
             // 
             this.songNameLabel.AutoSize = true;
             this.songNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.songNameLabel.Location = new System.Drawing.Point(442, 65);
+            this.songNameLabel.Location = new System.Drawing.Point(326, 61);
             this.songNameLabel.Name = "songNameLabel";
             this.songNameLabel.Size = new System.Drawing.Size(97, 20);
             this.songNameLabel.TabIndex = 6;
@@ -129,7 +129,7 @@
             // 
             this.songName.AutoSize = true;
             this.songName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.songName.Location = new System.Drawing.Point(545, 65);
+            this.songName.Location = new System.Drawing.Point(429, 61);
             this.songName.Name = "songName";
             this.songName.Size = new System.Drawing.Size(125, 20);
             this.songName.TabIndex = 7;
@@ -139,7 +139,7 @@
             // 
             this.songArtistLabel.AutoSize = true;
             this.songArtistLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.songArtistLabel.Location = new System.Drawing.Point(442, 95);
+            this.songArtistLabel.Location = new System.Drawing.Point(326, 91);
             this.songArtistLabel.Name = "songArtistLabel";
             this.songArtistLabel.Size = new System.Drawing.Size(92, 20);
             this.songArtistLabel.TabIndex = 8;
@@ -149,7 +149,7 @@
             // 
             this.songArtist.AutoSize = true;
             this.songArtist.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.songArtist.Location = new System.Drawing.Point(545, 95);
+            this.songArtist.Location = new System.Drawing.Point(429, 91);
             this.songArtist.Name = "songArtist";
             this.songArtist.Size = new System.Drawing.Size(125, 20);
             this.songArtist.TabIndex = 9;
@@ -159,7 +159,7 @@
             // 
             this.songGenreLabel.AutoSize = true;
             this.songGenreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.songGenreLabel.Location = new System.Drawing.Point(442, 125);
+            this.songGenreLabel.Location = new System.Drawing.Point(326, 121);
             this.songGenreLabel.Name = "songGenreLabel";
             this.songGenreLabel.Size = new System.Drawing.Size(100, 20);
             this.songGenreLabel.TabIndex = 10;
@@ -169,7 +169,7 @@
             // 
             this.songGenre.AutoSize = true;
             this.songGenre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.songGenre.Location = new System.Drawing.Point(545, 125);
+            this.songGenre.Location = new System.Drawing.Point(429, 121);
             this.songGenre.Name = "songGenre";
             this.songGenre.Size = new System.Drawing.Size(125, 20);
             this.songGenre.TabIndex = 11;
@@ -179,7 +179,7 @@
             // 
             this.songYearLabel.AutoSize = true;
             this.songYearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.songYearLabel.Location = new System.Drawing.Point(442, 155);
+            this.songYearLabel.Location = new System.Drawing.Point(326, 151);
             this.songYearLabel.Name = "songYearLabel";
             this.songYearLabel.Size = new System.Drawing.Size(89, 20);
             this.songYearLabel.TabIndex = 12;
@@ -189,7 +189,7 @@
             // 
             this.songYear.AutoSize = true;
             this.songYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.songYear.Location = new System.Drawing.Point(545, 155);
+            this.songYear.Location = new System.Drawing.Point(429, 151);
             this.songYear.Name = "songYear";
             this.songYear.Size = new System.Drawing.Size(125, 20);
             this.songYear.TabIndex = 13;
@@ -199,7 +199,7 @@
             // 
             this.songDurationLabel.AutoSize = true;
             this.songDurationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.songDurationLabel.Location = new System.Drawing.Point(545, 185);
+            this.songDurationLabel.Location = new System.Drawing.Point(429, 181);
             this.songDurationLabel.Name = "songDurationLabel";
             this.songDurationLabel.Size = new System.Drawing.Size(125, 20);
             this.songDurationLabel.TabIndex = 14;
@@ -215,15 +215,15 @@
             this.playWholeSong.UseVisualStyleBackColor = true;
             this.playWholeSong.Click += new System.EventHandler(this.playWholeSong_Click);
             // 
-            // label1
+            // durationLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(442, 185);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 20);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Duration:";
+            this.durationLabel.AutoSize = true;
+            this.durationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.durationLabel.Location = new System.Drawing.Point(326, 181);
+            this.durationLabel.Name = "durationLabel";
+            this.durationLabel.Size = new System.Drawing.Size(74, 20);
+            this.durationLabel.TabIndex = 16;
+            this.durationLabel.Text = "Duration:";
             // 
             // playSpecificSong
             // 
@@ -241,7 +241,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(914, 450);
             this.Controls.Add(this.playSpecificSong);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.durationLabel);
             this.Controls.Add(this.playWholeSong);
             this.Controls.Add(this.songDurationLabel);
             this.Controls.Add(this.songYear);
@@ -260,6 +260,7 @@
             this.Controls.Add(this.selectSongLocationButton);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.secondsToPlay)).EndInit();
             this.ResumeLayout(false);
@@ -285,7 +286,7 @@
         private System.Windows.Forms.Label songYear;
         private System.Windows.Forms.Label songDurationLabel;
         private System.Windows.Forms.Button playWholeSong;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label durationLabel;
         private System.Windows.Forms.Button playSpecificSong;
     }
 }
