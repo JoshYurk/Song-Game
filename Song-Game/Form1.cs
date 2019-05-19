@@ -1,5 +1,4 @@
-﻿using Microsoft.WindowsAPICodePack.Shell;
-using Song_Game.Properties;
+﻿using Song_Game.Properties;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -8,7 +7,6 @@ using System.Threading;
 using System.Timers;
 using System.Windows.Forms;
 using WMPLib;
-using ThreadState = System.Threading.ThreadState;
 
 namespace Song_Game
 {
@@ -91,22 +89,17 @@ namespace Song_Game
         {
             var currentSong = string.IsNullOrWhiteSpace(songNameParameter) ? _files[_songNumber] : songNameParameter;
 
-            using (var shell = ShellObject.FromParsingName(currentSong))
-            {
-                var songTitle = shell.Properties.System.Title.Value ?? shell.Properties.System.FileName.Value ?? "No Title Found";
-                var year = shell.Properties.System.Media.Year.Value != null ? shell.Properties.System.Media.Year.Value.ToString() : "No Year Found";
-                var artist = shell.Properties.System.Music.Artist.Value != null ? string.Join(",", shell.Properties.System.Music.Artist.Value) : "No Artist Found";
-                var genre = shell.Properties.System.Music.Genre.Value != null ? string.Join(",", shell.Properties.System.Music.Genre.Value) : "No Genre Found";
-                var t = (ulong?)shell.Properties.System.Media.Duration?.ValueAsObject ?? 0;
-                var timeSpan = TimeSpan.FromTicks((long)t);
-                _songDuration = new TimeSpan(timeSpan.Days, timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds);
-                songDurationLabel.Text = @"00:00:00/" + _songDuration;
+            var tFile = TagLib.File.Create(currentSong);
 
-                songArtist.Text = artist;
-                songYear.Text = year;
-                songName.Text = songTitle;
-                songGenre.Text = genre;
-            }
+            songArtist.Text = !string.IsNullOrWhiteSpace(tFile.Tag.JoinedPerformers)
+                ? tFile.Tag.JoinedPerformers
+                : "No Artist(s) Found";
+            songYear.Text = tFile.Tag.Year != 0 ? tFile.Tag.Year.ToString() : "No Year Found";
+            songName.Text = !string.IsNullOrWhiteSpace(tFile.Tag.Title) ? tFile.Tag.Title : "No Title Found";
+            songGenre.Text = !string.IsNullOrWhiteSpace(tFile.Tag.JoinedGenres) ? tFile.Tag.JoinedGenres : "No Genre(s) Found";
+
+            _songDuration = new TimeSpan(tFile.Properties.Duration.Days, tFile.Properties.Duration.Hours, tFile.Properties.Duration.Minutes, tFile.Properties.Duration.Seconds);
+            songDurationLabel.Text = @"00:00:00/" + _songDuration;
         }
 
         private void PlaySelectedSong(object sender, EventArgs e)
