@@ -47,6 +47,7 @@
             this.playWholeSong = new System.Windows.Forms.Button();
             this.durationLabel = new System.Windows.Forms.Label();
             this.playSpecificSong = new System.Windows.Forms.Button();
+            this.songCountLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.secondsToPlay)).BeginInit();
             this.SuspendLayout();
             // 
@@ -236,11 +237,21 @@
             this.playSpecificSong.UseVisualStyleBackColor = true;
             this.playSpecificSong.Click += new System.EventHandler(this.PlaySelectedSong);
             // 
+            // songCountLabel
+            // 
+            this.songCountLabel.AutoSize = true;
+            this.songCountLabel.Location = new System.Drawing.Point(276, 18);
+            this.songCountLabel.Name = "songCountLabel";
+            this.songCountLabel.Size = new System.Drawing.Size(79, 13);
+            this.songCountLabel.TabIndex = 18;
+            this.songCountLabel.Text = "0 Songs Found";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(914, 450);
+            this.Controls.Add(this.songCountLabel);
             this.Controls.Add(this.playSpecificSong);
             this.Controls.Add(this.durationLabel);
             this.Controls.Add(this.playWholeSong);
@@ -293,6 +304,7 @@
         private System.Windows.Forms.Button playWholeSong;
         private System.Windows.Forms.Label durationLabel;
         private System.Windows.Forms.Button playSpecificSong;
+        private System.Windows.Forms.Label songCountLabel;
     }
 }
 

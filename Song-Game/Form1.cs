@@ -32,6 +32,7 @@ namespace Song_Game
             Text = @"Song Game";
             Width = 1200;
             selectSongLocationButton.TabStop = false;
+            songCountLabel.Visible = false;
             secondsToPlay.TabStop = false;
             playNextSegment.TabStop = false;
             playWholeSong.TabStop = false;
@@ -74,9 +75,11 @@ namespace Song_Game
                                                                      || file.ToLower().EndsWith("mp3")
                                                                      || file.ToLower().EndsWith("m4a")).ToArray();
             //            MessageBox.Show(@"Files Found: " + _files.Length.ToString(), @"Files Found");
+            songCountLabel.Text = _files.Length + @" Songs Found";
             playRandomSong.Enabled = true;
             playNextSegment.Enabled = true;
             playWholeSong.Enabled = true;
+            songCountLabel.Visible = true;
 
             songName.Text = Resources.DefaultLabelText;
             songArtist.Text = Resources.DefaultLabelText;
