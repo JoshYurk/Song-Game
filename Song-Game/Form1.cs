@@ -92,21 +92,28 @@ namespace Song_Game
         {
             var currentSong = string.IsNullOrWhiteSpace(songNameParameter) ? _files[_songNumber] : songNameParameter;
 
-            var tFile = TagLib.File.Create(currentSong);
+            try
+            {
+                var tFile = TagLib.File.Create(currentSong);
 
-            var lastIndex =  tFile.Name.LastIndexOf('\\')+1;
-            var fileName = tFile.Name.Substring(lastIndex);
+                var lastIndex = tFile.Name.LastIndexOf('\\') + 1;
+                var fileName = tFile.Name.Substring(lastIndex);
 
-            songFileNameLabel.Text = fileName;
-            songArtist.Text = !string.IsNullOrWhiteSpace(tFile.Tag.JoinedPerformers)
-                ? tFile.Tag.JoinedPerformers
-                : "No Artist(s) Found";
-            songYear.Text = tFile.Tag.Year != 0 ? tFile.Tag.Year.ToString() : "No Year Found";
-            songName.Text = !string.IsNullOrWhiteSpace(tFile.Tag.Title) ? tFile.Tag.Title : "No Title Found";
-            songGenre.Text = !string.IsNullOrWhiteSpace(tFile.Tag.JoinedGenres) ? tFile.Tag.JoinedGenres : "No Genre(s) Found";
+                songFileNameLabel.Text = fileName;
+                songArtist.Text = !string.IsNullOrWhiteSpace(tFile.Tag.JoinedPerformers)
+                    ? tFile.Tag.JoinedPerformers
+                    : "No Artist(s) Found";
+                songYear.Text = tFile.Tag.Year != 0 ? tFile.Tag.Year.ToString() : "No Year Found";
+                songName.Text = !string.IsNullOrWhiteSpace(tFile.Tag.Title) ? tFile.Tag.Title : "No Title Found";
+                songGenre.Text = !string.IsNullOrWhiteSpace(tFile.Tag.JoinedGenres) ? tFile.Tag.JoinedGenres : "No Genre(s) Found";
 
-            _songDuration = new TimeSpan(tFile.Properties.Duration.Days, tFile.Properties.Duration.Hours, tFile.Properties.Duration.Minutes, tFile.Properties.Duration.Seconds);
-            songDurationLabel.Text = @"00:00:00/" + _songDuration;
+                _songDuration = new TimeSpan(tFile.Properties.Duration.Days, tFile.Properties.Duration.Hours, tFile.Properties.Duration.Minutes, tFile.Properties.Duration.Seconds);
+                songDurationLabel.Text = @"00:00:00/" + _songDuration;
+            }
+            catch(TagLib.CorruptFileException e)
+            {
+                MessageBox.Show(@"The File " + currentSong + " could not be loaded", @"Corrupt File Selected");
+            }
         }
 
         private void PlaySelectedSong(object sender, EventArgs e)
