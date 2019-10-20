@@ -69,7 +69,10 @@ namespace Song_Game
             if (result != DialogResult.OK || string.IsNullOrWhiteSpace(dialog.SelectedPath)) return;
 
             songLocationLabel.Text = dialog.SelectedPath;
-            _windowsMediaPlayer.controls.stop();
+            _windowsMediaPlayer.controls.pause();
+            _stopwatch.Stop();
+            _stopwatch.Reset();
+            PlayTimer.Stop();
             _songLocation = dialog.SelectedPath;
             _files = Directory.EnumerateFiles(_songLocation, "*", SearchOption.AllDirectories).Where(file => file.ToLower().EndsWith("mp4")
                                                                      || file.ToLower().EndsWith("mp3")
@@ -86,6 +89,7 @@ namespace Song_Game
             songYear.Text = Resources.DefaultLabelText;
             songGenre.Text = Resources.DefaultLabelText;
             songDurationLabel.Text = Resources.DefaultLabelText;
+            songFileNameLabel.Text = Resources.DefaultLabelText;
         }
 
         private void GetSongMetadata(string songNameParameter = "")
@@ -110,7 +114,7 @@ namespace Song_Game
                 _songDuration = new TimeSpan(tFile.Properties.Duration.Days, tFile.Properties.Duration.Hours, tFile.Properties.Duration.Minutes, tFile.Properties.Duration.Seconds);
                 songDurationLabel.Text = @"00:00:00/" + _songDuration;
             }
-            catch(TagLib.CorruptFileException e)
+            catch
             {
                 MessageBox.Show(@"The File " + currentSong + " could not be loaded", @"Corrupt File Selected");
             }
