@@ -48,6 +48,8 @@
             this.durationLabel = new System.Windows.Forms.Label();
             this.playSpecificSong = new System.Windows.Forms.Button();
             this.songCountLabel = new System.Windows.Forms.Label();
+            this.fileNameLabel = new System.Windows.Forms.Label();
+            this.songFileNameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.secondsToPlay)).BeginInit();
             this.SuspendLayout();
             // 
@@ -246,11 +248,33 @@
             this.songCountLabel.TabIndex = 18;
             this.songCountLabel.Text = "0 Songs Found";
             // 
+            // fileNameLabel
+            // 
+            this.fileNameLabel.AutoSize = true;
+            this.fileNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fileNameLabel.Location = new System.Drawing.Point(326, 210);
+            this.fileNameLabel.Name = "fileNameLabel";
+            this.fileNameLabel.Size = new System.Drawing.Size(84, 20);
+            this.fileNameLabel.TabIndex = 19;
+            this.fileNameLabel.Text = "File Name:";
+            // 
+            // songFileNameLabel
+            // 
+            this.songFileNameLabel.AutoSize = true;
+            this.songFileNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.songFileNameLabel.Location = new System.Drawing.Point(429, 210);
+            this.songFileNameLabel.Name = "songFileNameLabel";
+            this.songFileNameLabel.Size = new System.Drawing.Size(125, 20);
+            this.songFileNameLabel.TabIndex = 20;
+            this.songFileNameLabel.Text = "No Song Playing";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(914, 450);
+            this.Controls.Add(this.songFileNameLabel);
+            this.Controls.Add(this.fileNameLabel);
             this.Controls.Add(this.songCountLabel);
             this.Controls.Add(this.playSpecificSong);
             this.Controls.Add(this.durationLabel);
@@ -305,6 +329,8 @@
         private System.Windows.Forms.Label durationLabel;
         private System.Windows.Forms.Button playSpecificSong;
         private System.Windows.Forms.Label songCountLabel;
+        private System.Windows.Forms.Label fileNameLabel;
+        private System.Windows.Forms.Label songFileNameLabel;
     }
 }
 

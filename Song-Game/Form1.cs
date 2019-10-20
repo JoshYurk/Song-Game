@@ -94,6 +94,10 @@ namespace Song_Game
 
             var tFile = TagLib.File.Create(currentSong);
 
+            var lastIndex =  tFile.Name.LastIndexOf('\\')+1;
+            var fileName = tFile.Name.Substring(lastIndex);
+
+            songFileNameLabel.Text = fileName;
             songArtist.Text = !string.IsNullOrWhiteSpace(tFile.Tag.JoinedPerformers)
                 ? tFile.Tag.JoinedPerformers
                 : "No Artist(s) Found";
